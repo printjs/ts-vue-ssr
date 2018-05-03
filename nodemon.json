@@ -1,0 +1,11 @@
+{
+    "watch": [
+        "server.ts",
+        "src"
+    ],
+    "env": {
+        "NODE_ENV": "development"
+    },
+    "ext": "ts",
+    "exec": "node_modules/.bin/ts-node -P tsconfig.json -r tsconfig-paths/register server.ts"
+}

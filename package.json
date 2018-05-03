@@ -6,7 +6,8 @@
   "scripts": {
     "client": "node_modules/.bin/webpack-cli --config webpack.client.ts",
     "server": "node_modules/.bin/webpack-cli --config webpack.server.ts",
-    "build": "node_modules/.bin/ts-node ./config/del.dist.ts && npm run client && npm run server"
+    "build": "node_modules/.bin/ts-node ./config/del.dist.ts && npm run client && npm run server",
+    "start": "nodemon"
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,7 @@
     "@types/node": "^10.0.3",
     "@types/webpack": "^4.1.4",
     "copy-webpack-plugin": "^4.5.1",
+    "nodemon": "^1.17.3",
     "ts-loader": "^4.2.0",
     "ts-node": "^6.0.2",
     "tsconfig-paths": "^3.3.1",
