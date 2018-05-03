@@ -1,0 +1,53 @@
+{
+  "name": "ts-vue-ssr",
+  "version": "1.0.0",
+  "description": "ssr vue typescript",
+  "main": "index.js",
+  "scripts": {
+    "client": "node_modules/.bin/webpack-cli --config webpack.client.ts",
+    "server": "node_modules/.bin/webpack-cli --config webpack.server.ts",
+    "build": "node_modules/.bin/ts-node ./config/del.dist.ts && npm run client && npm run server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wjtGitHub/ts-vue-ssr.git"
+  },
+  "keywords": [
+    "ssr",
+    "vue",
+    "typescript"
+  ],
+  "author": "wjt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wjtGitHub/ts-vue-ssr/issues"
+  },
+  "homepage": "https://github.com/wjtGitHub/ts-vue-ssr#readme",
+  "dependencies": {
+    "@nestjs/common": "^4.6.6",
+    "@nestjs/core": "^4.6.6",
+    "express": "^4.16.3",
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "^5.5.6",
+    "vue": "^2.5.16",
+    "vue-class-component": "^6.2.0",
+    "vue-router": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.11.1",
+    "@types/node": "^10.0.3",
+    "@types/webpack": "^4.1.4",
+    "copy-webpack-plugin": "^4.5.1",
+    "ts-loader": "^4.2.0",
+    "ts-node": "^6.0.2",
+    "tsconfig-paths": "^3.3.1",
+    "tslint": "^5.9.1",
+    "tslint-loader": "^3.6.0",
+    "typescript": "^2.8.3",
+    "vue-server-renderer": "^2.5.16",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.1.2",
+    "webpack-merge": "^4.1.2",
+    "webpack-node-externals": "^1.7.2"
+  }
+}

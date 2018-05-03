@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "lib": [
+            "es2015"
+        ],
+        "sourceMap": true,
+        "removeComments": true,
+        "moduleResolution": "node",
+        "baseUrl": ".",
+        "paths": {
+            "@server/*": [
+                "server/*"
+            ],
+            "@src/*": [
+                "src/*"
+            ]
+        },
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    }
+}
