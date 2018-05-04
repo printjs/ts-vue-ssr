@@ -11,6 +11,9 @@
         "moduleResolution": "node",
         "baseUrl": ".",
         "paths": {
+            "@views/*":[
+                "src/views/*"
+            ],
             "@server/*": [
                 "server/*"
             ],

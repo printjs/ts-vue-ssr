@@ -17,7 +17,7 @@ export class App extends Vue {
     ];
     public i: number = 0;
     public created() {
-        console.log(this.arr);
+        // created
     }
 
     public mounted() {
@@ -30,14 +30,4 @@ export class App extends Vue {
         console.log(this.$router);
         console.log(document);
     }
-}
-
-export function createApp() {
-    // 创建 router 实例
-    const router = createRouter();
-    const app = new Vue({
-        router,
-        render: (h: CreateElement) => h(App),
-    });
-    return { app, router };
 }

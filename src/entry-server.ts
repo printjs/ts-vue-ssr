@@ -1,4 +1,5 @@
-import { createApp } from "@src/app";
+import { createApp } from "@src/entry";
+
 
 
 export default async (context: { url: string }) => {
@@ -12,13 +13,17 @@ export default async (context: { url: string }) => {
         // 等到 router 将可能的异步组件和钩子函数解析完
         router.onReady(() => {
             const matchedComponents = router.getMatchedComponents();
-            // 匹配不到的路由，执行 reject 函数，并返回 404
-            if (!matchedComponents.length) {
+            if (context.url === "/") {
+                resolve(app);
+            } else if (!matchedComponents.length) {
+                // 匹配不到的路由，执行 reject 函数，并返回 404
                 return reject({ code: 404 });
+            } else {
+                // Promise 应该 resolve 应用程序实例，以便它可以渲染
+                resolve(app);
             }
 
-            // Promise 应该 resolve 应用程序实例，以便它可以渲染
-            resolve(app);
+
         }, reject);
     });
 };

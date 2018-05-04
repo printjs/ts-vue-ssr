@@ -17,6 +17,7 @@ export default {
     resolve: {
         extensions: [".ts", ".js", ".styl", ".css", ".json"],
         alias: {
+            "@views": path.join(process.cwd(), "src/views"),
             "@src": path.join(process.cwd(), "src"),
             "vue$": "vue/dist/vue.esm.js",
             "@server": path.join(process.cwd(), "server"),

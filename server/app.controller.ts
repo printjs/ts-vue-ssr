@@ -54,18 +54,6 @@ export class AppController {
                 }
             });
         }
-
-        // } else {
-        //     const { app } = createApp();
-        //     renderer.renderToString(app, context, (err: any, html: string) => {
-        //         // 处理错误……
-        //         try {
-        //             res.end(html);
-        //         } catch (err) {
-        //             console.warn(err);
-        //         }
-        //     });
-        // }
     }
 }
 

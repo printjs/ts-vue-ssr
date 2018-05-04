@@ -1,4 +1,6 @@
-import { createApp } from "@src/app";
+import { createApp } from "@src/entry";
+
+
 
 // 客户端特定引导逻辑……
 const { app, router } = createApp();
