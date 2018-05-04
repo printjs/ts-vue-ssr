@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "client": "node_modules/.bin/webpack-cli --config webpack.client.ts",
-    "server": "node_modules/.bin/webpack-cli --config webpack.server.ts -w",
-    "build": "node_modules/.bin/ts-node ./config/del.dist.ts && npm run client && npm run server",
-    "start": "nodemon"
+    "server": "node_modules/.bin/webpack-cli --config webpack.server.ts",
+    "build": "nodemon",
+    "start": "node_modules/.bin/ts-node -P tsconfig.json -r tsconfig-paths/register server.ts"
   },
   "repository": {
     "type": "git",

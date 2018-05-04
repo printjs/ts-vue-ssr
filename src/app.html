@@ -1,6 +1,8 @@
-<div>
+<div id="app">
     <button @click="test">ok</button>
+    <router-link to="/test">Test</router-link>
     <h1 class="test">wtf</h1>
+    <router-view></router-view>
     <p>{{i}}</p>
     <ul>
         <li v-for="val in arr">{{val}}</li>

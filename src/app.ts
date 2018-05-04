@@ -17,12 +17,17 @@ export class App extends Vue {
     ];
     public i: number = 0;
     public created() {
-        console.log("test");
+        console.log(this.arr);
+    }
+
+    public mounted() {
+        console.log("mounted");
     }
     public test() {
+        this.$router.push("/test");
         this.i++;
         console.log(this.i);
-        console.log("====");
+        console.log(this.$router);
         console.log(document);
     }
 }

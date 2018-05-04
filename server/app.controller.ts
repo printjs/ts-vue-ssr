@@ -13,7 +13,10 @@ import { Buffer } from "buffer";
 export class AppController {
     @Get("*")
     public render(@Req() req, @Res() res) {
-        const context = { url: req.url, title: "wtf" };
+        const context = {
+            url: req.url,
+            title: "wtf",
+        };
         if (process.env.NODE_ENV === "development") {
             const page = fs.readFileSync(path.join(process.cwd(), "dist/index.template.html"), "utf-8");
             const serverBundle = JSON.parse(
@@ -23,7 +26,6 @@ export class AppController {
             const renderer = createBundleRenderer(serverBundle, {
                 template: page,
                 clientManifest,
-                runInNewContext: false,
             });
             renderer.renderToString(context, (err: any, html: string) => {
                 // 处理异常……

@@ -2,6 +2,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import { App } from "@src/app";
+import { Test } from "@src/views/test/test";
 
 
 Vue.use(Router);
@@ -13,6 +14,10 @@ export function createRouter() {
             {
                 path: "/",
                 component: App,
+            },
+            {
+                path: "/test",
+                component: Test,
             },
         ],
     });
