@@ -1,11 +1,17 @@
 import webpack from "webpack";
 const merge = require("webpack-merge");
-import { baseConfig } from "./webpack.base";
+import baseConfig from "./webpack.base";
 const VueSSRClientPlugin = require("vue-server-renderer/client-plugin");
 import * as path from "path";
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 export default merge(baseConfig, {
     entry: path.join(process.cwd(), "src/entry-client.ts"),
+    output: {
+        publicPath: ".",
+        path: path.join(process.cwd(), "dist/"),
+        filename: "[name].[hash].js",
+    },
     optimization: {
         splitChunks: {
             chunks: "async",
@@ -39,5 +45,11 @@ export default merge(baseConfig, {
         // 此插件在输出目录中
         // 生成 `vue-ssr-client-manifest.json`。
         new VueSSRClientPlugin(),
+        new CopyWebpackPlugin([
+            {
+                from: path.join(process.cwd(), "config/index.template.html"),
+                to: path.join(process.cwd(), "dist/index.template.html"),
+            },
+        ]),
     ],
 });

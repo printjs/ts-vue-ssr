@@ -1,16 +1,30 @@
 // app.ts
-import Vue from "vue";
+import Vue, { CreateElement } from "vue";
 import Component from "vue-class-component";
 import { createRouter } from "@src/route";
 
 
-
+require("./app.styl");
 @Component({
     name: "app",
-    template: `<h1>test12313123</h1>`,
+    template: require("./app.html"),
 })
 export class App extends Vue {
-
+    public arr: string[] = [
+        "www",
+        "google",
+        ".com",
+    ];
+    public i: number = 0;
+    public created() {
+        console.log("test");
+    }
+    public test() {
+        this.i++;
+        console.log(this.i);
+        console.log("====");
+        console.log(document);
+    }
 }
 
 export function createApp() {
@@ -18,9 +32,7 @@ export function createApp() {
     const router = createRouter();
     const app = new Vue({
         router,
-        template: `<div>
-            <router-view></router-view>
-        </div>`,
+        render: (h: CreateElement) => h(App),
     });
     return { app, router };
 }

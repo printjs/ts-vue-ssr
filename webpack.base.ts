@@ -1,16 +1,18 @@
 import * as webpack from "webpack";
 import * as path from "path";
-const CopyWebpackPlugin = require("copy-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const autoprefixer = require("autoprefixer");
 
 
 
-export const baseConfig: webpack.Configuration = {
-    // entry: "./src/entry-client.ts",
-    output: {
-        publicPath: ".",
-        path: path.join(process.cwd(), "dist/"),
-        filename: "[name].[hash].js",
-    },
+
+const stylus = new ExtractTextPlugin({
+    filename: "[name].[id].css",
+});
+
+
+
+export default {
     mode: "production",
     resolve: {
         extensions: [".ts", ".js", ".styl", ".css", ".json"],
@@ -33,15 +35,45 @@ export const baseConfig: webpack.Configuration = {
                 exclude: /node_modules|vue\/src/,
                 loader: "ts-loader",
             },
+            {
+                test: /\.html$/,
+                loader: "raw-loader",
+                exclude: [path.resolve(process.cwd(), "config/index.template.html")],
+            },
+            {
+                test: /\.styl$/,
+                use: stylus.extract({
+                    use: [
+                        {
+                            loader: "css-loader",
+                            options: {
+                                minimize: true,
+                                sourceMap: true,
+                            },
+                        },
+                        {
+                            loader: "postcss-loader",
+                            options: {
+                                sourceMap: true,
+                                plugins: () => [autoprefixer],
+                            },
+                        },
+                        {
+                            loader: "stylus-loader",
+                            options: {
+                                outputStyle: "expanded",
+                                sourceMap: true,
+                                sourceMapContents: true,
+                                paths: "src/resource/",
+                            },
+                        },
+                    ],
+                }),
+            },
         ],
     },
     devtool: "#source-map",
     plugins: [
-        new CopyWebpackPlugin([
-            {
-                from: path.join(process.cwd(), "config/index.template.html"),
-                to: path.join(process.cwd(), "dist/index.template.html"),
-            },
-        ]),
+        stylus,
     ],
 };

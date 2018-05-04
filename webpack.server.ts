@@ -1,6 +1,6 @@
 const merge = require("webpack-merge");
 const nodeExternals = require("webpack-node-externals");
-import { baseConfig } from "./webpack.base";
+import baseConfig from "./webpack.base";
 const VueSSRServerPlugin = require("vue-server-renderer/server-plugin");
 import * as path from "path";
 

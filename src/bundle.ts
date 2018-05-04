@@ -13,4 +13,6 @@ export const bundlerenderer = createBundleRenderer(serverBundle, {
 });
 
 
-export const renderer = require("vue-server-renderer").createRenderer();
+export const renderer = require("vue-server-renderer").createRenderer({
+    template: html,
+});

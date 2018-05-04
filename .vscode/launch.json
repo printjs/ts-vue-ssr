@@ -27,7 +27,7 @@
             "request": "launch",
             "name": "debug",
             "env": {
-                "NODE_ENV": "production"
+                "NODE_ENV": "development"
             },
             "runtimeArgs": [
                 "-r",
